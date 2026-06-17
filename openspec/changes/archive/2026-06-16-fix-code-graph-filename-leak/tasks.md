@@ -17,4 +17,4 @@
 - [x] 3.1 Run `uv run --package cortex-ingestion --extra test python -m pytest services/ingestion/tests` and `uv run --package cortex-pipeline --extra test python -m pytest services/pipeline/tests`
 - [ ] 3.2 _DEFERRED (operator decision): Re-ingest the banking knowledge base against a cleared catalog + Qdrant collection; confirm the `/graph` Map view shows real filenames (`evals/checks.py`) and no `tmp*.py` nodes, and that `cortex.concept` has zero rows matching `^tmp[a-z0-9]+\.py$`. Behaviour is proven by the unit tests in `test_code_path_materialisation.py` (which reproduced the bug in RED); the live re-ingest is deferred until the operator re-loads the corpus.
 - [ ] 3.3 _DEFERRED (operator decision): Re-ingest the same repo a second time and confirm symbol-chunk `entity_id` counts are unchanged (idempotent upsert, no duplicate rows). Idempotency is covered by `test_extract_code_symbol_ids_are_stable`.
-- [ ] 3.4 Run `openspec validate fix-code-graph-filename-leak --strict`, scan staged changes for secrets, commit, and push
+- [x] 3.4 Run `openspec validate fix-code-graph-filename-leak --strict`, scan staged changes for secrets, commit, and push
